@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-kbk-gold: #FFCC00;
+  --color-kbk-black: #0A0A14;
+  --color-kbk-gray: #1A1A2E;
+  --color-kbk-muted: #888888;
+  --color-kbk-blue: #3B82F6;
+  --color-kbk-purple: #7B2FFF;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --animate-drip: drip 3s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite;
+}
+
+@keyframes drip {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px #FFCC0040; }
+  50% { box-shadow: 0 0 40px #FFCC0080; }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0A0A14;
+  color: #E8ECF2;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.kbk-gold { color: #FFCC00; }
+.kbk-gold-bg { background-color: #FFCC00; }
+
+.drip-divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #FFCC00, transparent);
+  position: relative;
+}
+
+.drip-divider::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 12px;
+  background: #FFCC00;
+  border-radius: 0 0 3px 3px;
+}
+
+.badge-limited {
+  background: #FFCC0020;
+  border: 1px solid #FFCC0060;
+  color: #FFCC00;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.sold-out-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #888888;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cart-drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 400px;
+  background: #1A1A2E;
+  border-left: 1px solid #FFCC0020;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+*:focus-visible {
+  outline: 2px solid #FFCC00;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A14; }
+::-webkit-scrollbar-thumb { background: #FFCC0040; border-radius: 3px; }
