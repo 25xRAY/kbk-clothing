@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KBK — Kings Build Kingdoms. Premium graffiti art clothing brand. Bleach art, hand-painted, and spray technique garments. Each piece one of one.">
+<meta name="theme-color" content="#D4A017">
+<meta property="og:title" content="KBK — Kings Build Kingdoms">
+<meta property="og:description" content="Street culture elevated to wearable art. Graffiti art, bleach technique, hand-painted. Each piece one of one.">
+<title>KBK — Kings Build Kingdoms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rock+Salt&family=Boogaloo&family=Righteous&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#D4A017;
+  --gold-light:#F0C040;
+  --gold-dark:#9A7210;
+  --gold-muted:rgba(212,160,23,.15);
+  --deep-black:#080808;
+  --charcoal:#101010;
+  --off-black:#181818;
+  --card-black:#141414;
+  --blue:#1E6FD9;
+  --green:#22C55E;
+  --crimson:#C0392B;
+  --violet:#7B2FBE;
+  --white:#F5F5F0;
+  --white-70:rgba(245,245,240,.70);
+  --white-45:rgba(245,245,240,.45);
+  --white-25:rgba(245,245,240,.25);
+  --white-12:rgba(245,245,240,.12);
+  --font-display:'Permanent Marker',cursive;
+  --font-tag:'Rock Salt',cursive;
+  --font-street:'Boogaloo',cursive;
+  --font-body:'Rajdhani',sans-serif;
+  --transition:cubic-bezier(.25,.46,.45,.94);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--deep-black);
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.7;
+  overflow-x:hidden;
+  cursor:crosshair;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── SKIP NAV (Accessibility) ── */
+.skip-nav{
+  position:absolute;top:-100px;left:1rem;
+  background:var(--gold);color:var(--deep-black);
+  padding:.5rem 1rem;font-family:var(--font-body);font-weight:700;
+  font-size:14px;text-decoration:none;border-radius:0 0 4px 4px;
+  z-index:9999;transition:top .2s;
+}
+.skip-nav:focus{top:0}
+
+/* ── GRAIN TEXTURE ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:999;
+  opacity:.32;
+  mix-blend-mode:overlay;
+}
+
+/* ── NAVIGATION ── */
+.nav{
+  position:sticky;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 3rem;
+  background:rgba(8,8,8,.94);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1.5px solid rgba(212,160,23,.18);
+}
+.nav-logo{
+  font-family:var(--font-display);
+  font-size:2.2rem;
+  color:var(--gold);
+  text-shadow:3px 3px 0 rgba(0,0,0,.5),-1px -1px 0 var(--gold-dark);
+  letter-spacing:.04em;
+  text-decoration:none;
+  cursor:pointer;
+}
+.nav-links{
+  display:flex;gap:2rem;list-style:none;
+  align-items:center;
+}
+.nav-links a{
+  font-family:var(--font-street);
+  font-size:1.05rem;letter-spacing:.15em;
+  color:var(--white-45);text-decoration:none;
+  transition:color .2s var(--transition);
+  padding:.25rem 0;
+  border-bottom:2px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible{
+  color:var(--gold);
+  border-bottom-color:var(--gold);
+  outline:none;
+}
+.nav-cta{
+  font-family:var(--font-display);font-size:.95rem;letter-spacing:.08em;
+  background:var(--gold);color:var(--deep-black);
+  border:none;cursor:pointer;
+  padding:.6rem 1.6rem 1.4rem;
+  border-radius:4px 8px 0 6px / 6px 4px 0 8px;
+  position:relative;z-index:10;
+  /* Drip bleed downward */
+  box-shadow:
+    0 6px 0 var(--gold),
+    0 12px 0 rgba(212,160,23,.55),
+    0 18px 0 rgba(212,160,23,.25),
+    0 23px 0 rgba(212,160,23,.1);
+  margin-bottom:-1.8rem;
+  transition:filter .2s var(--transition),transform .2s var(--transition);
+}
+.nav-cta:hover,.nav-cta:focus-visible{
+  filter:brightness(1.12);transform:translateY(-2px);outline:none;
+}
+
+/* ── MOBILE NAV TOGGLE ── */
+.nav-toggle{
+  display:none;
+  background:transparent;border:1.5px solid var(--white-25);
+  color:var(--white);padding:.4rem .7rem;cursor:pointer;
+  font-family:var(--font-body);font-size:.85rem;letter-spacing:.1em;
+}
+@media(max-width:900px){
+  .nav{padding:1rem 1.5rem}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;background:rgba(8,8,8,.98);padding:1.5rem;
+    border-bottom:1.5px solid var(--gold-muted);}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  position:relative;overflow:hidden;
+  padding:8rem 2rem 6rem;
+  text-align:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 45% at 18% 50%,rgba(30,111,217,.11) 0%,transparent 60%),
+    radial-gradient(ellipse 55% 45% at 82% 50%,rgba(123,47,190,.11) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 55% at 50% 82%,rgba(212,160,23,.07) 0%,transparent 60%),
+    var(--deep-black);
+  pointer-events:none;
+}
+/* Spray-paint atmosphere blobs */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Ccircle cx='130' cy='210' r='90' fill='%231E6FD9' opacity='0.035'/%3E%3Ccircle cx='770' cy='320' r='70' fill='%237B2FBE' opacity='0.04'/%3E%3Ccircle cx='450' cy='700' r='110' fill='%23D4A017' opacity='0.03'/%3E%3Ccircle cx='90' cy='650' r='50' fill='%23C0392B' opacity='0.04'/%3E%3Ccircle cx='810' cy='700' r='60' fill='%2322C55E' opacity='0.03'/%3E%3C/svg%3E");
+  background-size:cover;pointer-events:none;
+}
+.hero-eyebrow{
+  font-family:var(--font-tag);
+  font-size:.6rem;letter-spacing:.35em;
+  color:var(--gold);
+  margin-bottom:2rem;position:relative;z-index:2;
+  display:flex;align-items:center;gap:1.2rem;
+  opacity:.85;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';flex:1;height:1px;
+  background:rgba(212,160,23,.22);
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(4.5rem,13vw,10.5rem);
+  line-height:.92;
+  position:relative;z-index:2;
+  margin-bottom:.85rem;
+  letter-spacing:.03em;
+}
+.hero-title .k1{
+  -webkit-text-stroke:2px var(--blue);
+  color:transparent;
+  text-shadow:4px 4px 0 rgba(30,111,217,.28);
+  display:inline-block;transform:rotate(-3deg);
+}
+.hero-title .b{
+  color:var(--gold);
+  text-shadow:3px 3px 0 var(--gold-dark),6px 6px 0 rgba(0,0,0,.35);
+  display:inline-block;position:relative;
+}
+.hero-title .b::before{
+  content:'♛';
+  position:absolute;top:-1.9rem;left:50%;transform:translateX(-50%);
+  font-size:1.4rem;color:var(--gold);
+  opacity:.6;font-family:serif;letter-spacing:0;
+  pointer-events:none;
+}
+.hero-title .k2{
+  -webkit-text-stroke:2px var(--crimson);
+  color:transparent;
+  text-shadow:4px 4px 0 rgba(123,47,190,.28);
+  display:inline-block;transform:rotate(2deg);
+}
+.hero-sub{
+  font-family:var(--font-street);
+  font-size:1.15rem;letter-spacing:.28em;
+  color:var(--white-45);
+  margin-bottom:3.5rem;
+  position:relative;z-index:2;
+}
+.hero-actions{
+  display:flex;gap:2.2rem;flex-wrap:wrap;justify-content:center;
+  position:relative;z-index:2;margin-bottom:2rem;
+}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  animation:bounce 2s ease-in-out infinite;
+  color:var(--white-25);font-family:var(--font-tag);font-size:.45rem;letter-spacing:.3em;
+  cursor:pointer;border:none;background:transparent;
+}
+.hero-scroll svg{opacity:.35}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* Hero → marquee drip transition */
+.hero-drip{
+  position:absolute;bottom:-1px;left:0;right:0;
+  pointer-events:none;width:100%;
+}
+
+/* ── BLEED BUTTON SYSTEM ── */
+/* Gold primary — drips down into the next section */
+.btn-bleed-gold{
+  font-family:var(--font-display);
+  font-size:1rem;letter-spacing:.08em;
+  background:var(--gold);color:var(--deep-black);
+  border:none;cursor:pointer;
+  padding:.75rem 2.4rem 1.6rem;
+  border-radius:4px 12px 0 8px / 8px 4px 0 12px;
+  margin-bottom:-1.9rem;
+  position:relative;z-index:10;
+  box-shadow:
+    0 9px 0 var(--gold),
+    0 17px 0 rgba(212,160,23,.58),
+    0 24px 0 rgba(212,160,23,.28),
+    0 30px 0 rgba(212,160,23,.11),
+    -2px 0 0 var(--gold-dark),
+    2px 1px 0 rgba(212,160,23,.4);
+  transition:filter .2s var(--transition),transform .2s var(--transition);
+  line-height:1;
+}
+.btn-bleed-gold:hover,.btn-bleed-gold:focus-visible{
+  filter:brightness(1.14);transform:translateY(-2px);outline:none;
+}
+/* Ghost outline — white/transparent drip */
+.btn-bleed-outline{
+  font-family:var(--font-display);
+  font-size:1rem;letter-spacing:.08em;
+  background:transparent;color:var(--white);
+  border:2px solid rgba(245,245,240,.28);cursor:pointer;
+  padding:.75rem 2.4rem 1.6rem;
+  border-radius:8px 4px 0 10px / 6px 10px 0 4px;
+  margin-bottom:-1.9rem;
+  position:relative;z-index:10;
+  box-shadow:
+    0 9px 0 rgba(245,245,240,.05),
+    0 17px 0 rgba(245,245,240,.025),
+    0 24px 0 rgba(245,245,240,.01);
+  transition:border-color .2s var(--transition),color .2s var(--transition),transform .2s var(--transition);
+  line-height:1;
+}
+.btn-bleed-outline:hover,.btn-bleed-outline:focus-visible{
+  border-color:var(--gold);color:var(--gold);
+  transform:translateY(-2px);outline:none;
+}
+/* Dark inverse — black bleeds into gold sections */
+.btn-bleed-dark{
+  font-family:var(--font-display);
+  font-size:1rem;letter-spacing:.06em;
+  background:var(--deep-black);color:var(--gold);
+  border:2px solid var(--gold-dark);cursor:pointer;
+  padding:.75rem 2rem 1.6rem;
+  border-radius:6px 10px 0 4px / 10px 6px 0 8px;
+  margin-bottom:-1.9rem;
+  position:relative;z-index:10;
+  box-shadow:
+    0 9px 0 var(--deep-black),
+    0 17px 0 rgba(8,8,8,.68),
+    0 24px 0 rgba(8,8,8,.32),
+    0 30px 0 rgba(8,8,8,.12);
+  transition:background .2s var(--transition),transform .2s var(--transition);
+  line-height:1;
+}
+.btn-bleed-dark:hover,.btn-bleed-dark:focus-visible{
+  background:var(--charcoal);transform:translateY(-2px);outline:none;
+}
+/* Card quick-view bleed */
+.overlay-btn{
+  font-family:var(--font-display);font-size:.88rem;letter-spacing:.06em;
+  background:var(--gold);color:var(--deep-black);
+  border:none;cursor:pointer;
+  padding:.65rem 1.8rem 1.4rem;
+  border-radius:6px 10px 0 4px / 8px 4px 0 10px;
+  position:relative;z-index:5;
+  box-shadow:
+    0 7px 0 var(--gold),
+    0 14px 0 rgba(212,160,23,.55),
+    0 20px 0 rgba(212,160,23,.22),
+    0 26px 0 rgba(212,160,23,.08);
+  margin-bottom:-1.5rem;
+  transition:filter .2s;
+  line-height:1;
+}
+.overlay-btn:hover,.overlay-btn:focus-visible{
+  filter:brightness(1.12);outline:none;
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  background:var(--gold);
+  padding:.62rem 0;overflow:hidden;
+  border-top:3px solid var(--gold-dark);
+  border-bottom:3px solid var(--gold-dark);
+  position:relative;z-index:5;
+}
+.marquee-track{
+  display:flex;white-space:nowrap;
+  animation:marquee 26s linear infinite;
+  will-change:transform;
+}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{
+  font-family:var(--font-display);font-size:.95rem;letter-spacing:.14em;
+  color:var(--deep-black);padding:0 1.5rem;
+}
+.marquee-dot{color:rgba(0,0,0,.28);padding:0 .3rem}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTION BASE ── */
+section{padding:6rem 2rem}
+.container{max-width:1200px;margin:0 auto;width:100%}
+.section-label{
+  font-family:var(--font-tag);
+  font-size:.55rem;letter-spacing:.38em;
+  color:var(--gold);margin-bottom:1rem;
+  display:block;opacity:.82;
+}
+.section-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,5.5vw,4rem);
+  letter-spacing:.02em;line-height:1.05;
+  margin-bottom:1.5rem;
+}
+.section-title em{
+  font-style:normal;
+  -webkit-text-stroke:1.5px var(--gold);
+  color:transparent;
+}
+
+/* ── TRUST BAR ── */
+.trust-bar{
+  background:var(--off-black);
+  border-top:1px solid rgba(212,160,23,.08);
+  border-bottom:1px solid rgba(212,160,23,.08);
+  padding:1.75rem 2rem;
+}
+.trust-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:center;align-items:center;
+  gap:3rem;flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;align-items:center;gap:.75rem;
+  font-family:var(--font-street);font-size:1rem;
+  color:var(--white-45);letter-spacing:.08em;
+}
+.trust-icon{font-size:1.2rem}
+
+/* ── COLLECTIONS ── */
+.collections{background:var(--charcoal);padding-top:4rem}
+.collections-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem;
+}
+.filter-row{
+  display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;
+}
+.filter-btn{
+  font-family:var(--font-street);font-size:.85rem;letter-spacing:.12em;
+  background:transparent;color:var(--white-45);
+  border:1px solid rgba(245,245,240,.12);
+  padding:.35rem 1.1rem;cursor:pointer;
+  transition:all .2s var(--transition);
+  border-radius:2px 6px 0 4px;
+}
+.filter-btn:hover,.filter-btn.active,.filter-btn:focus-visible{
+  background:var(--gold-muted);border-color:var(--gold);
+  color:var(--gold);outline:none;
+}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:2px;
+  background:rgba(212,160,23,.07);
+  border:1px solid rgba(212,160,23,.07);
+}
+.product-card{
+  background:var(--card-black);overflow:hidden;
+  position:relative;cursor:pointer;
+  transition:transform .32s var(--transition);
+}
+.product-card:hover,.product-card:focus-within{z-index:2;transform:scale(1.022)}
+.product-card:hover .product-overlay,.product-card:focus-within .product-overlay{opacity:1}
+.product-img{
+  width:100%;aspect-ratio:3/4;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.product-img svg{width:100%;height:100%;position:absolute;inset:0}
+.product-badge{
+  position:absolute;top:1rem;right:1rem;z-index:3;
+  font-family:var(--font-tag);font-size:.45rem;letter-spacing:.2em;
+  background:var(--gold);color:var(--deep-black);
+  padding:.3rem .7rem;
+  border-radius:2px 6px 0 2px;
+}
+.product-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,.74);
+  display:flex;align-items:flex-end;padding:2rem;
+  opacity:0;transition:opacity .28s var(--transition);
+}
+.product-info{
+  padding:1.5rem 1.5rem 1.75rem;
+  position:relative;z-index:2;
+  border-top:1px solid rgba(212,160,23,.08);
+}
+.product-tag{
+  font-family:var(--font-tag);font-size:.48rem;letter-spacing:.18em;
+  color:var(--gold);margin-bottom:.5rem;display:block;opacity:.78;
+}
+.product-name{
+  font-family:var(--font-display);font-size:1.3rem;letter-spacing:.02em;
+  margin-bottom:.4rem;line-height:1.1;
+}
+.product-price{
+  font-family:var(--font-street);font-size:1rem;
+  color:var(--white-45);display:flex;align-items:baseline;gap:.5rem;
+}
+.product-price strong{color:var(--gold-light);font-size:1.15rem;font-weight:600}
+.product-stock{
+  font-family:var(--font-tag);font-size:.44rem;letter-spacing:.12em;
+  color:var(--crimson);margin-top:.4rem;display:block;
+}
+
+/* ── MANIFESTO / ABOUT ── */
+.manifesto{position:relative;overflow:hidden;background:var(--deep-black)}
+.manifesto-grid{
+  display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center;
+}
+.manifesto-art{
+  position:relative;aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;
+}
+.manifesto-art-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 28% 28%,rgba(30,111,217,.13) 0%,transparent 52%),
+    radial-gradient(ellipse at 72% 72%,rgba(212,160,23,.1) 0%,transparent 52%);
+  border:1px solid rgba(212,160,23,.07);
+}
+.manifesto-text p{
+  font-family:var(--font-body);font-size:1.05rem;
+  line-height:1.9;color:var(--white-70);
+  margin-bottom:1.4rem;
+}
+.manifesto-text p strong{
+  color:var(--gold);font-family:var(--font-street);font-size:1.12em;font-weight:600;
+}
+.manifesto-stat{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+  margin-top:2.5rem;
+  border-top:1px solid rgba(212,160,23,.1);padding-top:2.5rem;
+}
+.stat-num{
+  font-family:var(--font-display);font-size:2.8rem;
+  color:var(--gold);display:block;line-height:1;
+  text-shadow:2px 2px 0 var(--gold-dark);
+}
+.stat-label{
+  font-family:var(--font-tag);font-size:.46rem;letter-spacing:.18em;
+  color:var(--white-25);margin-top:.45rem;display:block;
+}
+.manifesto-ctas{
+  display:flex;gap:1.8rem;flex-wrap:wrap;
+  margin-top:3rem;position:relative;z-index:5;
+}
+
+/* ── TECHNIQUES ── */
+.techniques{background:var(--charcoal);padding-top:5rem}
+.techniques-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:2px;margin-top:3rem;
+  background:rgba(212,160,23,.06);
+}
+.technique-card{
+  background:var(--off-black);padding:2.5rem 2rem;
+  border-bottom:3px solid transparent;
+  transition:border-color .28s var(--transition),background .28s var(--transition);
+  cursor:default;
+}
+.technique-card:hover{
+  border-bottom-color:var(--gold);
+  background:rgba(212,160,23,.03);
+}
+.technique-icon{font-size:2.2rem;margin-bottom:1.2rem;display:block;line-height:1}
+.technique-name{
+  font-family:var(--font-display);font-size:1.3rem;letter-spacing:.02em;
+  margin-bottom:.75rem;color:var(--white);line-height:1.1;
+}
+.technique-desc{
+  font-family:var(--font-body);font-size:.95rem;line-height:1.75;
+  color:var(--white-45);
+}
+
+/* ── PROCESS STRIP ── */
+.process{background:var(--deep-black);padding:5rem 2rem}
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:0;margin-top:3rem;
+  counter-reset:steps;
+}
+.process-step{
+  padding:2rem 1.75rem;
+  border-left:1px solid rgba(212,160,23,.1);
+  position:relative;
+  counter-increment:steps;
+}
+.process-step::before{
+  content:counter(steps,decimal-leading-zero);
+  font-family:var(--font-display);font-size:3.5rem;
+  color:rgba(212,160,23,.1);
+  position:absolute;top:.75rem;right:1rem;
+  line-height:1;pointer-events:none;
+}
+.process-step-title{
+  font-family:var(--font-display);font-size:1.15rem;
+  color:var(--gold);margin-bottom:.6rem;
+}
+.process-step p{
+  font-family:var(--font-body);font-size:.9rem;
+  color:var(--white-45);line-height:1.7;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--off-black);padding:5rem 2rem}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.5px;margin-top:3rem;
+  background:rgba(212,160,23,.06);
+}
+.testimonial-card{
+  background:var(--card-black);padding:2rem;
+  border-top:3px solid rgba(212,160,23,.12);
+  transition:border-top-color .25s;
+}
+.testimonial-card:hover{border-top-color:var(--gold)}
+.testimonial-stars{
+  color:var(--gold);font-size:1rem;letter-spacing:.15em;
+  margin-bottom:1rem;display:block;
+}
+.testimonial-quote{
+  font-family:var(--font-body);font-size:1rem;
+  line-height:1.8;color:var(--white-70);
+  margin-bottom:1.25rem;
+  font-style:italic;
+}
+.testimonial-author{
+  font-family:var(--font-street);font-size:.95rem;letter-spacing:.1em;
+  color:var(--white-45);
+}
+.testimonial-author strong{
+  color:var(--gold);font-weight:600;
+  font-family:var(--font-display);font-size:1rem;
+}
+
+/* ── DROP COUNTDOWN ── */
+.countdown-section{
+  background:var(--charcoal);padding:4rem 2rem;text-align:center;
+  border-top:1px solid rgba(212,160,23,.08);
+  border-bottom:1px solid rgba(212,160,23,.08);
+}
+.countdown-label{
+  font-family:var(--font-tag);font-size:.55rem;letter-spacing:.35em;
+  color:var(--gold);margin-bottom:1rem;display:block;opacity:.8;
+}
+.countdown-title{
+  font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.5rem);
+  color:var(--white);margin-bottom:2rem;
+}
+.countdown-timer{
+  display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
+  margin-bottom:0;
+}
+.countdown-unit{text-align:center}
+.countdown-num{
+  font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4rem);
+  color:var(--gold);display:block;line-height:1;
+  text-shadow:2px 2px 0 var(--gold-dark);
+}
+.countdown-unit-label{
+  font-family:var(--font-tag);font-size:.45rem;letter-spacing:.2em;
+  color:var(--white-25);display:block;margin-top:.3rem;
+}
+
+/* ── DROPS / EMAIL ── */
+.drops{
+  background:var(--gold);
+  padding:5.5rem 2rem 4.5rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.drops::before{
+  content:'KBK';
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-display);font-size:20rem;
+  color:rgba(0,0,0,.055);white-space:nowrap;
+  pointer-events:none;letter-spacing:.06em;line-height:1;
+}
+.drops-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.5rem,7vw,5.5rem);
+  color:var(--deep-black);
+  position:relative;z-index:2;
+  margin-bottom:.5rem;
+  text-shadow:3px 3px 0 rgba(0,0,0,.1);
+  line-height:1;
+}
+.drops-sub{
+  font-family:var(--font-street);font-size:1.15rem;
+  color:rgba(0,0,0,.44);margin-bottom:2.5rem;
+  position:relative;z-index:2;
+}
+.drops-form{
+  display:flex;gap:.75rem;justify-content:center;
+  position:relative;z-index:2;flex-wrap:wrap;
+}
+.drops-input{
+  background:rgba(0,0,0,.12);
+  border:2px solid rgba(0,0,0,.15);
+  padding:.9rem 1.75rem;
+  font-family:var(--font-street);font-size:1rem;letter-spacing:.08em;
+  color:var(--deep-black);width:300px;
+  border-radius:4px 8px 0 6px;
+  outline:none;
+  transition:border-color .2s;
+}
+.drops-input:focus{border-color:rgba(0,0,0,.35)}
+.drops-input::placeholder{color:rgba(0,0,0,.36)}
+.drops-submit{
+  font-family:var(--font-display);font-size:.95rem;letter-spacing:.07em;
+  background:var(--deep-black);color:var(--gold);
+  border:none;cursor:pointer;
+  padding:.9rem 2.2rem 1.9rem;
+  border-radius:6px 4px 0 10px / 4px 8px 0 6px;
+  position:relative;z-index:10;
+  box-shadow:
+    0 10px 0 var(--deep-black),
+    0 18px 0 rgba(8,8,8,.62),
+    0 25px 0 rgba(8,8,8,.28),
+    0 31px 0 rgba(8,8,8,.1);
+  transition:background .2s var(--transition),transform .2s var(--transition);
+  line-height:1;
+}
+.drops-submit:hover,.drops-submit:focus-visible{
+  background:var(--charcoal);transform:translateY(-2px);outline:none;
+}
+.drops-disclaimer{
+  font-family:var(--font-body);font-size:13px;
+  color:rgba(0,0,0,.35);margin-top:3.5rem;
+  position:relative;z-index:2;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--deep-black);
+  border-top:1.5px solid rgba(212,160,23,.1);
+  padding:5rem 2rem 2.5rem;
+  position:relative;z-index:2;
+}
+.footer-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;
+  margin-bottom:3.5rem;
+}
+.footer-brand .nav-logo{
+  display:block;margin-bottom:1.2rem;font-size:2.8rem;
+  font-family:var(--font-display);color:var(--gold);
+  text-shadow:3px 3px 0 rgba(0,0,0,.5);
+  text-decoration:none;
+}
+.footer-brand p{
+  font-family:var(--font-body);font-size:.95rem;
+  line-height:1.75;color:var(--white-25);max-width:255px;
+}
+.footer-col h4{
+  font-family:var(--font-tag);font-size:.5rem;letter-spacing:.24em;
+  color:var(--gold);margin-bottom:1.25rem;opacity:.82;
+}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.65rem}
+.footer-col ul a{
+  font-family:var(--font-street);font-size:1rem;letter-spacing:.06em;
+  color:var(--white-25);text-decoration:none;
+  transition:color .2s var(--transition);
+}
+.footer-col ul a:hover,.footer-col ul a:focus-visible{
+  color:var(--gold);outline:none;
+}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  border-top:1px solid rgba(212,160,23,.07);padding-top:2rem;
+}
+.footer-bottom p{
+  font-family:var(--font-body);font-size:13px;
+  color:rgba(245,245,240,.18);letter-spacing:.08em;
+}
+.social-links{display:flex;gap:.75rem}
+.social-link{
+  font-family:var(--font-display);font-size:.75rem;
+  width:40px;height:40px;
+  border:1px solid rgba(212,160,23,.18);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--white-25);text-decoration:none;
+  transition:all .2s var(--transition);
+  border-radius:2px 6px 0 4px;
+}
+.social-link:hover,.social-link:focus-visible{
+  border-color:var(--gold);color:var(--gold);outline:none;
+}
+.footer-legal{
+  font-family:var(--font-body);font-size:12px;
+  color:rgba(245,245,240,.12);letter-spacing:.06em;
+  margin-top:1rem;max-width:1200px;margin-left:auto;margin-right:auto;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal{
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .68s var(--transition),transform .68s var(--transition);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── PAGE LOADER ── */
+.page-loader{
+  position:fixed;inset:0;background:var(--deep-black);z-index:10000;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .6s var(--transition),visibility .6s;
+}
+.page-loader.loaded{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{
+  font-family:var(--font-display);font-size:5rem;color:var(--gold);
+  text-shadow:3px 3px 0 var(--gold-dark);
+  animation:pulseGold 1.2s ease-in-out infinite;
+}
+@keyframes pulseGold{0%,100%{opacity:.4;transform:scale(.96)}50%{opacity:1;transform:scale(1)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .manifesto-grid{grid-template-columns:1fr}
+  .manifesto-art{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  section{padding:4.5rem 1.5rem}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr}
+  .hero-title{font-size:clamp(4rem,20vw,6rem)}
+  .trust-inner{gap:1.5rem}
+  .countdown-timer{gap:1.25rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Page Loader -->
+<div class="page-loader" id="pageLoader" aria-hidden="true" role="presentation">
+  <div class="loader-logo">KBK</div>
+</div>
+
+<!-- Skip Navigation (Accessibility) -->
+<a class="skip-nav" href="#main-content">Skip to main content</a>
+
+<!-- ── NAVIGATION ── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-logo" href="#home" aria-label="KBK — Kings Build Kingdoms home">KBK</a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">Menu</button>
+  <ul class="nav-links" id="navLinks" role="list">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#about">Manifesto</a></li>
+    <li><a href="#techniques">Craft</a></li>
+    <li><a href="#drops">Drops</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('drops').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+</nav>
+
+<!-- ── HERO ── -->
+<main id="main-content">
+<section class="hero" id="home" aria-labelledby="heroTitle">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="hero-eyebrow" aria-hidden="true">Kings Build Kingdoms — Est. Street Culture</div>
+
+  <h1 class="hero-title" id="heroTitle">
+    <span class="k1" aria-hidden="true">K</span><span class="b">B</span><span class="k2" aria-hidden="true">K</span>
+    <span class="sr-only">KBK</span>
+  </h1>
+
+  <p class="hero-sub">Graffiti Art &middot; Bleach Technique &middot; Hand Painted</p>
+
+  <div class="hero-actions reveal">
+    <button class="btn-bleed-gold" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Explore Collection</button>
+    <button class="btn-bleed-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Our Craft</button>
+  </div>
+
+  <button class="hero-scroll" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to collections">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Scroll
+  </button>
+
+  <svg class="hero-drip" viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none">
+    <path d="M0,0 Q180,50 360,0 Q540,50 720,0 Q900,50 1080,0 Q1260,50 1440,0 L1440,80 L0,80 Z" fill="#101010"/>
+    <ellipse cx="240" cy="14" rx="4" ry="22" fill="#1E6FD9" opacity=".65"/>
+    <ellipse cx="520" cy="9" rx="5.5" ry="30" fill="#D4A017" opacity=".68"/>
+    <ellipse cx="840" cy="16" rx="4" ry="24" fill="#7B2FBE" opacity=".65"/>
+    <ellipse cx="1140" cy="11" rx="3.5" ry="20" fill="#C0392B" opacity=".65"/>
+  </svg>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrap" role="marquee" aria-label="KBK brand highlights">
+  <div class="marquee-track" aria-hidden="true">
+    <span class="marquee-item">Kings Build Kingdoms</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Graffiti Couture</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Bleach Art</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Hand Painted</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Street Luxury</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Each Piece One of One</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Kings Build Kingdoms</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Graffiti Couture</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Bleach Art</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Hand Painted</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Street Luxury</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Each Piece One of One</span><span class="marquee-dot">✦</span>
+  </div>
+</div>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar" aria-label="Brand trust indicators">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon" aria-hidden="true">🔒</span> Secure Checkout</div>
+    <div class="trust-item"><span class="trust-icon" aria-hidden="true">✦</span> Free Shipping Over $150</div>
+    <div class="trust-item"><span class="trust-icon" aria-hidden="true">🎨</span> 100% Hand Finished</div>
+    <div class="trust-item"><span class="trust-icon" aria-hidden="true">↩</span> 30-Day Returns</div>
+    <div class="trust-item"><span class="trust-icon" aria-hidden="true">♛</span> Each Piece One of One</div>
+  </div>
+</div>
+
+<!-- ── COLLECTIONS ── -->
+<section class="collections" id="collections" aria-labelledby="collectionsTitle">
+  <div class="container">
+    <div class="collections-header reveal">
+      <div>
+        <span class="section-label">SS 2026 Collection</span>
+        <h2 class="section-title" id="collectionsTitle">The Crown<br><em>Series</em></h2>
+      </div>
+      <button class="btn-bleed-outline" style="align-self:flex-start">View All Pieces</button>
+    </div>
+
+    <div class="filter-row" role="group" aria-label="Filter products by type">
+      <button class="filter-btn active" data-filter="all">All Pieces</button>
+      <button class="filter-btn" data-filter="hoodies">Hoodies</button>
+      <button class="filter-btn" data-filter="tees">Tees</button>
+      <button class="filter-btn" data-filter="jackets">Jackets</button>
+      <button class="filter-btn" data-filter="bottoms">Bottoms</button>
+    </div>
+
+    <div class="products-grid reveal" role="list" aria-label="Product collection">
+
+      <!-- Product 1 -->
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Crown Hoodie K1 — $185">
+        <div class="product-img" aria-hidden="true">
+          <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg">
+            <rect width="260" height="340" fill="#1a1a1a"/>
+            <path d="M40,60 Q130,38 220,60 L242,340 L18,340 Z" fill="#111"/>
+            <path d="M88,60 Q130,44 172,60 Q161,92 130,97 Q99,92 88,60Z" fill="#0d0d0d"/>
+            <ellipse cx="130" cy="185" rx="58" ry="68" fill="rgba(245,245,240,0.055)"/>
+            <circle cx="108" cy="162" r="26" fill="rgba(245,245,240,0.038)"/>
+            <circle cx="158" cy="205" r="20" fill="rgba(245,245,240,0.028)"/>
+            <text x="82" y="220" font-family="'Permanent Marker',cursive" font-size="105" fill="none" stroke="#1E6FD9" stroke-width="2.5" opacity="0.82">K</text>
+            <ellipse cx="112" cy="244" rx="3.5" ry="14" fill="#1E6FD9" opacity="0.62"/>
+            <ellipse cx="144" cy="252" rx="2.5" ry="10" fill="#22C55E" opacity="0.5"/>
+            <ellipse cx="172" cy="239" rx="2.5" ry="12" fill="#1E6FD9" opacity="0.42"/>
+          </svg>
+          <div class="product-badge">Limited</div>
+        </div>
+        <div class="product-overlay">
+          <button class="overlay-btn" aria-label="Quick view Crown Hoodie K1">Quick View</button>
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Bleach Art &middot; Hoodie</span>
+          <div class="product-name">Crown Hoodie — K1</div>
+          <div class="product-price"><strong>$185</strong> &middot; Hand Finished</div>
+          <span class="product-stock">Only 3 remaining</span>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Gold Crown Tee B — $145">
+        <div class="product-img" aria-hidden="true">
+          <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg">
+            <rect width="260" height="340" fill="#0f0f0f"/>
+            <path d="M55,50 L28,92 L70,102 L70,340 L190,340 L190,102 L232,92 L205,50 L170,66 Q130,82 90,66 Z" fill="#1a1a1a"/>
+            <path d="M80,120 Q130,98 180,132 Q160,204 130,215 Q100,204 80,120Z" fill="rgba(212,160,23,0.11)"/>
+            <text x="78" y="228" font-family="'Permanent Marker',cursive" font-size="98" fill="#D4A017" opacity="0.88">B</text>
+            <text x="128" y="136" font-family="serif" font-size="23" fill="#D4A017" opacity="0.68" text-anchor="middle">♛</text>
+            <ellipse cx="118" cy="252" rx="3.5" ry="15" fill="#D4A017" opacity="0.68"/>
+            <ellipse cx="144" cy="260" rx="2.5" ry="12" fill="#F0C040" opacity="0.5"/>
+            <ellipse cx="165" cy="248" rx="2" ry="9" fill="#D4A017" opacity="0.38"/>
+          </svg>
+          <div class="product-badge">Gold Series</div>
+        </div>
+        <div class="product-overlay">
+          <button class="overlay-btn" aria-label="Quick view Gold Crown Tee B">Quick View</button>
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Hand Painted &middot; Tee</span>
+          <div class="product-name">Gold Crown Tee — B</div>
+          <div class="product-price"><strong>$145</strong> &middot; Hand Finished</div>
+          <span class="product-stock">Only 2 remaining</span>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card" role="listitem" tabindex="0" aria-label="Violet Reign Jacket — $265">
+        <div class="product-img" aria-hidden="true">
+          <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg">
+            <rect width="260" height="340" fill="#141414"/>
+            <path d="M28,50 L18,340 L242,340 L232,50 L192,38 L170,70 L130,76 L90,70 L68,38Z" fill="#181818"/>
+            <rect x="114" y="72" width="32" height="268" fill="#0f0f0f"/>
+            <circle cx="130" cy="182" r="52" fill="rgba(192,57,43,0.08)"/>
+            <circle cx="158" cy="160" r="32" fill="rgba(123,47,190,0.08)"/>
+            <text x="72" y="234" font-family="'Permanent Marker',cursive" font-size="105" fill="none" stroke="#C0392B" stroke-width="2.5" opacity="0.84">K</text>
+            <text x="72" y="234" font-family="'Permanent Marker',cursive" font-size="105" fill="none" stroke="#7B2FBE" stroke-width="1" opacity="0.38">K</text>
+            <ellipse cx="110" cy="252" rx="3.5" ry="14" fill="#C0392B" opacity="0.62"/>
+            <ellipse cx="148" cy="260" rx="2" ry="11" fill="#7B2FBE" opacity="0.5"/>
+          </svg>
+          <div class="product-badge">Jacket</div>
+        </div>
+        <div class="product-overlay">
+          <button class="overlay-btn" aria-label="Quick view Violet Reign Jacket">Quick View</button>
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Graffiti Art &middot; Jacket</span>
+          <div class="product-name">Violet Reign Jacket</div>
+          <div class="product-price"><strong>$265</strong> &middot; Hand Finished</div>
+          <span class="product-stock">Only 1 remaining</span>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card" role="listitem" tabindex="0" aria-label="KBK Cargo Gold Tag — $195">
+        <div class="product-img" aria-hidden="true">
+          <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg">
+            <rect width="260" height="340" fill="#111"/>
+            <path d="M58,40 L202,40 L222,200 L200,340 L142,340 L130,282 L118,340 L60,340 L38,200Z" fill="#1c1c1c"/>
+            <rect x="116" y="92" width="28" height="248" fill="#161616"/>
+            <rect x="43" y="118" width="57" height="62" rx="2" fill="none" stroke="rgba(212,160,23,0.28)" stroke-width="1.5"/>
+            <rect x="160" y="118" width="57" height="62" rx="2" fill="none" stroke="rgba(212,160,23,0.28)" stroke-width="1.5"/>
+            <ellipse cx="72" cy="149" rx="19" ry="19" fill="rgba(245,245,240,0.065)"/>
+            <text x="50" y="162" font-family="'Permanent Marker',cursive" font-size="25" fill="#D4A017" opacity="0.84">KBK</text>
+            <path d="M37,98 L41,340" stroke="#22C55E" stroke-width="2" opacity="0.48"/>
+          </svg>
+          <div class="product-badge">Cargo</div>
+        </div>
+        <div class="product-overlay">
+          <button class="overlay-btn" aria-label="Quick view KBK Cargo Gold Tag">Quick View</button>
+        </div>
+        <div class="product-info">
+          <span class="product-tag">Cargo Series &middot; Unisex</span>
+          <div class="product-name">KBK Cargo — Gold Tag</div>
+          <div class="product-price"><strong>$195</strong> &middot; Hand Finished</div>
+          <span class="product-stock">4 remaining</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── MANIFESTO ── -->
+<section class="manifesto" id="about" aria-labelledby="manifestoTitle">
+  <div class="container">
+    <div class="manifesto-grid">
+      <div class="manifesto-art reveal" aria-hidden="true">
+        <div class="manifesto-art-bg"></div>
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:2;width:80%;max-width:310px">
+          <text x="200" y="248" font-family="'Permanent Marker',cursive" font-size="215" text-anchor="middle" fill="none" stroke="rgba(30,111,217,0.13)" stroke-width="1">K</text>
+          <text x="200" y="248" font-family="'Permanent Marker',cursive" font-size="180" text-anchor="middle" fill="none" stroke="rgba(212,160,23,0.22)" stroke-width="2">B</text>
+          <text x="200" y="248" font-family="'Permanent Marker',cursive" font-size="215" text-anchor="middle" fill="none" stroke="rgba(123,47,190,0.13)" stroke-width="1">K</text>
+          <text x="200" y="82" font-family="serif" font-size="50" text-anchor="middle" fill="#D4A017" opacity="0.42">♛</text>
+          <circle cx="78" cy="118" r="3.5" fill="#1E6FD9" opacity="0.38"/>
+          <circle cx="322" cy="98" r="2.5" fill="#7B2FBE" opacity="0.38"/>
+          <circle cx="58" cy="282" r="4" fill="#D4A017" opacity="0.28"/>
+          <circle cx="342" cy="305" r="3" fill="#C0392B" opacity="0.32"/>
+        </svg>
+      </div>
+
+      <div class="manifesto-text reveal">
+        <span class="section-label">Our Manifesto</span>
+        <h2 class="section-title" id="manifestoTitle">Art That Lives<br><em>On Your Back</em></h2>
+        <p>KBK isn't a clothing brand. It's a <strong>movement built on walls, canvases, and threads</strong>. Every piece starts with a blank garment and a story that demands to be told.</p>
+        <p>We draw from the raw energy of <strong>street graffiti culture</strong> — the illegal beauty, the controlled chaos — and transfer it onto premium fabric through hand-applied bleach art, spray techniques, and direct paint application.</p>
+        <p>No two pieces are identical. No mass production. <strong>You wear a one-of-one.</strong></p>
+
+        <div class="manifesto-stat" aria-label="Brand statistics">
+          <div><span class="stat-num">100%</span><span class="stat-label">Hand Finished</span></div>
+          <div><span class="stat-num">1/1</span><span class="stat-label">Every Piece</span></div>
+          <div><span class="stat-num">7+</span><span class="stat-label">Techniques</span></div>
+        </div>
+
+        <div class="manifesto-ctas">
+          <button class="btn-bleed-gold" onclick="document.getElementById('techniques').scrollIntoView({behavior:'smooth'})">Read the Story</button>
+          <button class="btn-bleed-dark" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})">See the Process</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECHNIQUES ── -->
+<section class="techniques" id="techniques" aria-labelledby="techniquesTitle">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">The Craft</span>
+      <h2 class="section-title" id="techniquesTitle">How We <em>Build</em></h2>
+    </div>
+    <div class="techniques-grid reveal" role="list">
+      <div class="technique-card" role="listitem">
+        <span class="technique-icon" aria-hidden="true" role="img">🎨</span>
+        <div class="technique-name">Bleach Art</div>
+        <p class="technique-desc">Sodium hypochlorite applied in precise patterns — stenciled, freehand, splattered — to extract color and reveal the raw fiber beneath. Every burn is permanent. Every mark intentional.</p>
+      </div>
+      <div class="technique-card" role="listitem">
+        <span class="technique-icon" aria-hidden="true" role="img">🖌️</span>
+        <div class="technique-name">Direct Paint</div>
+        <p class="technique-desc">Textile-grade acrylic applied by hand. Graffiti letterforms, wildstyle tags, and character work translated from walls to wearables with full dimensional layering.</p>
+      </div>
+      <div class="technique-card" role="listitem">
+        <span class="technique-icon" aria-hidden="true" role="img">💨</span>
+        <div class="technique-name">Spray Technique</div>
+        <p class="technique-desc">Actual spray cans. Actual street culture. Aerosol paint with specialty fixatives that bond to natural fibers, bringing authentic can-control to fashion.</p>
+      </div>
+      <div class="technique-card" role="listitem">
+        <span class="technique-icon" aria-hidden="true" role="img">⚡</span>
+        <div class="technique-name">Discharge Print</div>
+        <p class="technique-desc">Chemical discharge removes dye from reactive fabrics, creating ghost images and high-contrast reveals impossible with traditional printing.</p>
+      </div>
+      <div class="technique-card" role="listitem">
+        <span class="technique-icon" aria-hidden="true" role="img">🔥</span>
+        <div class="technique-name">Heat Press Art</div>
+        <p class="technique-desc">High-heat application of foils, transfers, and metallic accents that fuse permanently to the weave — adding depth and dimension that ordinary printing cannot achieve.</p>
+      </div>
+      <div class="technique-card" role="listitem">
+        <span class="technique-icon" aria-hidden="true" role="img">✂️</span>
+        <div class="technique-name">Distress Work</div>
+        <p class="technique-desc">Controlled destruction — raw cuts, sanded patches, frayed hems — applied with artist precision to create pieces that look lived-in from day one and age into legend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="process" aria-labelledby="processTitle">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">From Concept to Carry</span>
+      <h2 class="section-title" id="processTitle">The <em>Process</em></h2>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-step-title">Concept</div>
+        <p>Every piece begins with a story — a wall, a word, a feeling that demands to exist on fabric.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">Source</div>
+        <p>Premium blank garments selected for fabric weight, fiber content, and dye reactivity to our techniques.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">Sketch</div>
+        <p>Letterforms, compositions, and colorways roughed out by hand before a single drop of paint is applied.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">Execute</div>
+        <p>The artist works the garment — sometimes for hours — layering bleach, paint, and spray until the piece speaks.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">Cure</div>
+        <p>Heat setting, fixative treatment, and 48-hour cure time ensure every color holds through decades of wear.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">Certify</div>
+        <p>Every piece receives a signed certificate of authenticity. One artist. One garment. One number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials" aria-labelledby="testimonialsTitle">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">The Community</span>
+      <h2 class="section-title" id="testimonialsTitle">Kings Who <em>Wear</em></h2>
+    </div>
+    <div class="testimonials-grid reveal" role="list">
+      <div class="testimonial-card" role="listitem">
+        <span class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <p class="testimonial-quote">"I've collected art my whole life. This is the first time a piece of clothing stopped me the way a gallery installation would. People stop me on the street — every single time."</p>
+        <div class="testimonial-author"><strong>Marcus T.</strong> &middot; Atlanta, GA</div>
+      </div>
+      <div class="testimonial-card" role="listitem">
+        <span class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <p class="testimonial-quote">"The Violet Reign jacket is the most talked-about thing in my wardrobe. I wore it to Art Basel and three collectors asked who made it. That's when I knew this was different."</p>
+        <div class="testimonial-author"><strong>Dominique R.</strong> &middot; Miami, FL</div>
+      </div>
+      <div class="testimonial-card" role="listitem">
+        <span class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <p class="testimonial-quote">"The bleach work on the hoodie looks like a photograph. I've never seen that level of precision from a hand technique. Worth every dollar and then some."</p>
+        <div class="testimonial-author"><strong>Jordan K.</strong> &middot; New York, NY</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COUNTDOWN ── -->
+<div class="countdown-section" aria-label="Next drop countdown">
+  <span class="countdown-label">Next Drop</span>
+  <h2 class="countdown-title">The Sovereign Series — August 1, 2026</h2>
+  <div class="countdown-timer" role="timer" aria-live="polite">
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cdDays">59</span>
+      <span class="countdown-unit-label">Days</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cdHours">14</span>
+      <span class="countdown-unit-label">Hours</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cdMins">32</span>
+      <span class="countdown-unit-label">Minutes</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cdSecs">08</span>
+      <span class="countdown-unit-label">Seconds</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── DROPS CTA ── -->
+<section class="drops" id="drops" aria-labelledby="dropsTitle">
+  <h2 class="drops-title" id="dropsTitle">Get Early Access</h2>
+  <p class="drops-sub">The Sovereign Series — 20 pieces. No restock. Ever.</p>
+  <form class="drops-form" id="dropForm" novalidate aria-label="Early access signup">
+    <label for="emailInput" class="sr-only">Your email address</label>
+    <input
+      class="drops-input"
+      id="emailInput"
+      type="email"
+      placeholder="Your email for early access"
+      autocomplete="email"
+      required
+      aria-required="true"
+      aria-describedby="emailError"
+    >
+    <div id="emailError" role="alert" aria-live="polite" style="display:none;color:var(--crimson);font-size:13px;font-family:var(--font-body)"></div>
+    <button class="drops-submit" type="submit">Lock My Spot</button>
+  </form>
+  <p class="drops-disclaimer">No spam. Early access only. Unsubscribe anytime.</p>
+</section>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#home" aria-label="KBK home">KBK</a>
+      <p>Kings Build Kingdoms. Street culture elevated to wearable art. Every piece carries a story from the wall to your wardrobe.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#drops">New Drops</a></li>
+        <li><a href="#collections">Hoodies</a></li>
+        <li><a href="#collections">Tees</a></li>
+        <li><a href="#collections">Jackets</a></li>
+        <li><a href="#collections">Bottoms</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>World</h4>
+      <ul>
+        <li><a href="#about">Manifesto</a></li>
+        <li><a href="#techniques">The Craft</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Community</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Sizing Guide</a></li>
+        <li><a href="#">Care Instructions</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Returns &amp; Exchanges</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 KBK &mdash; Kings Build Kingdoms. All rights reserved.</p>
+    <nav aria-label="Social media links">
+      <div class="social-links">
+        <a class="social-link" href="#" aria-label="KBK on Instagram">IG</a>
+        <a class="social-link" href="#" aria-label="KBK on TikTok">TK</a>
+        <a class="social-link" href="#" aria-label="KBK on Twitter">TW</a>
+        <a class="social-link" href="#" aria-label="KBK on YouTube">YT</a>
+      </div>
+    </nav>
+  </div>
+  <p class="footer-legal">KBK is a registered trademark. All garments are hand-finished originals. Each piece includes a signed certificate of authenticity. Prices in USD. Free shipping on orders over $150 within the continental United States.</p>
+</footer>
+
+<!-- Screen-reader utility class -->
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+
+<script>
+/* ── PAGE LOADER ── */
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('pageLoader').classList.add('loaded'),680);
+});
+
+/* ── MOBILE NAV ── */
+const navToggle=document.getElementById('navToggle');
+const navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded',open);
+  navToggle.textContent=open?'Close':'Menu';
+});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+  navLinks.classList.remove('open');
+  navToggle.setAttribute('aria-expanded','false');
+  navToggle.textContent='Menu';
+}));
+
+/* ── SCROLL REVEAL ── */
+const reveals=document.querySelectorAll('.reveal');
+const revObs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*85);
+      revObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(r=>revObs.observe(r));
+
+/* ── FILTER BUTTONS ── */
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+  btn.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();btn.click();}
+  });
+});
+
+/* ── EMAIL FORM ── */
+document.getElementById('dropForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const input=document.getElementById('emailInput');
+  const err=document.getElementById('emailError');
+  const val=input.value.trim();
+  if(!val||!val.includes('@')||!val.includes('.')){
+    err.textContent='Please enter a valid email address.';
+    err.style.display='block';
+    input.setAttribute('aria-invalid','true');
+    input.focus();
+    return;
+  }
+  err.style.display='none';
+  input.setAttribute('aria-invalid','false');
+  input.value='';
+  input.placeholder='You\'re on the list \u2014 watch your inbox.';
+});
+
+/* ── COUNTDOWN TIMER ── */
+function updateCountdown(){
+  const target=new Date('2026-08-01T00:00:00').getTime();
+  const now=new Date().getTime();
+  const diff=Math.max(0,target-now);
+  const days=Math.floor(diff/(1000*60*60*24));
+  const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const mins=Math.floor((diff%(1000*60*60))/(1000*60));
+  const secs=Math.floor((diff%(1000*60))/1000);
+  const pad=n=>String(n).padStart(2,'0');
+  document.getElementById('cdDays').textContent=pad(days);
+  document.getElementById('cdHours').textContent=pad(hours);
+  document.getElementById('cdMins').textContent=pad(mins);
+  document.getElementById('cdSecs').textContent=pad(secs);
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+/* ── PRODUCT CARD KEYBOARD ── */
+document.querySelectorAll('.product-card').forEach(card=>{
+  card.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){
+      const btn=card.querySelector('.overlay-btn');
+      if(btn)btn.click();
+    }
+  });
+});
+
+/* ── ACTIVE NAV ON SCROLL ── */
+const sections=document.querySelectorAll('section[id],div[id]');
+const navAs=document.querySelectorAll('.nav-links a');
+const scrollSpy=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id=entry.target.getAttribute('id');
+      navAs.forEach(a=>{
+        a.style.color=a.getAttribute('href')==='#'+id?'var(--gold)':'';
+        a.style.borderBottomColor=a.getAttribute('href')==='#'+id?'var(--gold)':'transparent';
+      });
+    }
+  });
+},{threshold:0.4});
+sections.forEach(s=>scrollSpy.observe(s));
+</script>
+</body>
+</html>
